@@ -25,7 +25,7 @@ The request flows through three distinct services running locally:
 
 The key is that OpenTelemetry's context propagation ensures the `trace_id` is maintained across all hops, allowing Google Cloud Trace to stitch all the individual spans into a single, cohesive trace.
 
-## What is includd with this example?
+## What is included with this example?
 
 - **Centralised Configuration:** All configuration (ports, project IDs, URLs) is managed in `src/config.py` using `pydantic-settings` and loaded from a `.env` file, eliminating hardcoded values.
 - **Reusable Observability Setup:** OpenTelemetry and logging setup is centralised in `src/observability.py` to avoid code duplication across services.  If you need to split into separate deployable units - i.e. 3 services on Cloud Run - you'll need to couple `src/observability.py` with both the calling_service and the downstream_service.
